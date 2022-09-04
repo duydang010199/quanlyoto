@@ -53,8 +53,8 @@ function setData(key, data) {
   return localStorage.setItem(key, JSON.stringify(data));
 }
 // --- Render ---\\
-function renderListcar() {
-  let htmls = listcars.map(function (listcar, index) {
+function renderListcar(cars) {
+  let htmls = cars.map(function (listcar, index) {
     return `
             <tr>
               <td class="text-center">
@@ -102,7 +102,7 @@ function addCar() {
   listcars.unshift(newListcar);
   setData(key_data, listcars);
   closeModal();
-  renderListcar();
+  renderListcar(listcars);
   resetForm();
 }
 // --- Sắp xếp --- \\
@@ -179,11 +179,20 @@ function updateList() {
   setData(key_data, listcars);
 
   closeModal();
-  renderListcar();
+  renderListcar(listcars);
 }
-
+// --- Tìm kiếm --- \\
+function searchCar() {
+  let keyword = document.querySelector("#search").value;
+  console.log(keyword);
+  let result = listcars.filter(function (listcar) {
+    return listcar.name.toLowerCase().includes(keyword.toLowerCase());
+  });
+  renderListcar(result);
+}
+// --- Chạy chương trình --- \\
 function ready() {
   init();
-  renderListcar();
+  renderListcar(listcars);
 }
 ready();

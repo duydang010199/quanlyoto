@@ -5,9 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Car Management</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="listcar.css" />
   </head>
   <body>
+    <div class="banner">
+      <img
+        src="https://bkweb31.bkweb.com.vn/wp-content/uploads/2019/08/banner-1.png"
+        alt=""
+      />
+    </div>
+    <div class="input-text">
+      <i style="margin-right: 5px" class="fa-solid fa-magnifying-glass"></i
+      ><input
+        type="text"
+        id="search"
+        placeholder="Search"
+        oninput="searchCar()"
+      />
+    </div>
     <div class="container">
       <div class="row">
         <h4 class="heading-4">The New Product</h4>
@@ -53,7 +72,7 @@
               </div>
               <div class="form-group">
                 <label for="quantity">Quantity</label>
-                <input type="text" class="form-control" id="quantity" />
+                <input type="number" class="form-control" id="quantity" />
               </div>
               <div class="form-group">
                 <label for="price">Price</label>
