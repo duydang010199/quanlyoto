@@ -45,6 +45,7 @@ function init() {
     listcars = getData(key_data);
   }
 }
+
 function getData(key) {
   return JSON.parse(localStorage.getItem(key));
 }
@@ -54,7 +55,7 @@ function setData(key, data) {
 }
 // --- Render ---\\
 function renderListcar(cars) {
-  let htmls = cars.map(function (listcar, index) {
+  let htmls = cars.map(function (listcar) {
     return `
             <tr>
               <td class="text-center">
@@ -80,9 +81,11 @@ function renderListcar(cars) {
   });
   document.querySelector(".table>tbody").innerHTML = htmls.join("");
 }
+// --- Mở phương thức --- \\
 function openModal() {
   document.querySelector(".modal-container").classList.add("show");
 }
+// --- Đóng phương thức --- \\
 function closeModal() {
   document.querySelector(".modal-container").classList.remove("show");
   resetForm();
@@ -194,7 +197,6 @@ function updateList() {
   listcar.quantity = document.querySelector("#quantity").value;
   listcar.price = document.querySelector("#price").value;
   setData(key_data, listcars);
-
   closeModal();
   renderListcar(listcars);
 }
