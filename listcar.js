@@ -71,7 +71,9 @@ function renderListcar(cars) {
                 <button class="btn btn-edit" onclick="editListcar(${
                   listcar.id
                 })">Edit</button> 
-                <button class="btn btn-remove" onclick="removeListcar(${index})">Remove</button> 
+                <button class="btn btn-remove" onclick="removeListcar(${
+                  listcar.id
+                })">Remove</button> 
               </td>
             </tr> 
             `;
@@ -94,8 +96,20 @@ function addCar() {
     return;
   }
   let color = document.querySelector("#color").value;
+  if (!validation(color)) {
+    alert("Please input new product color!");
+    return;
+  }
   let quantity = Number(document.querySelector("#quantity").value);
+  if (quantity < 1 && quantity == null) {
+    alert("Please input new product quantity!");
+    return;
+  }
   let price = Number(document.querySelector("#price").value);
+  if (price < 1 && price == null) {
+    alert("Please input new product price!");
+    return;
+  }
   let id = findMaxId() + 1;
   let newListcar = new Listcar(id, image, name, color, quantity, price);
 
@@ -104,6 +118,10 @@ function addCar() {
   closeModal();
   renderListcar(listcars);
   resetForm();
+}
+// --- Điều kiện --- \\
+function validation(field) {
+  return field != null && field.trim() != "";
 }
 // --- Sắp xếp --- \\
 function findMaxId() {
@@ -131,19 +149,18 @@ function resetForm() {
 
   document.querySelector(".modal-title").innerText = "Add Listcar";
 }
-// --- Điều kiện --- \\
-function validation(field) {
-  return field != null && field.trim() != "";
-}
+
 // --- Xóa --- \\
-function removeListcar(index) {
-  let confirmed = window.confirm("Are you sure to product remove?");
-  if (confirmed == false) {
-    return;
+function removeListcar(id) {
+  let index = listcars.findIndex(function (lsc) {
+    return lsc.id == id;
+  });
+  let confirmed = confirm("Are you sure to product remove?");
+  if (confirmed) {
+    listcars.splice(index, 1);
+    setData(key_data, listcars);
+    renderListcar(listcars);
   }
-  listcars.splice(index, 1);
-  setData(key_data, listcars);
-  renderListcar(index);
 }
 // --- Sửa --- \\
 function editListcar(listcarID) {
@@ -163,7 +180,7 @@ function editListcar(listcarID) {
   document.querySelector(".modal-title").innerText = "Update Listcar";
   openModal();
 }
-// --- Update --- \\
+// --- Save --- \\
 function updateList() {
   let id = document.querySelector("#listcarID").value;
 
@@ -181,7 +198,6 @@ function updateList() {
   closeModal();
   renderListcar(listcars);
 }
-// --- Tìm kiếm --- \\
 function searchCar() {
   let keyword = document.querySelector("#search").value;
   console.log(keyword);
@@ -190,7 +206,7 @@ function searchCar() {
   });
   renderListcar(result);
 }
-// --- Chạy chương trình --- \\
+
 function ready() {
   init();
   renderListcar(listcars);
