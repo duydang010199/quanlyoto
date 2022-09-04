@@ -45,15 +45,15 @@ function init() {
     listcars = getData(key_data);
   }
 }
-
+// --- Lấy ra giá trị --- \\
 function getData(key) {
   return JSON.parse(localStorage.getItem(key));
 }
-
+// --- Trả về giá trị --- \\
 function setData(key, data) {
   return localStorage.setItem(key, JSON.stringify(data));
 }
-// --- Render ---\\
+// --- Render sản phẩm ---\\
 function renderListcar(cars) {
   let htmls = cars.map(function (listcar) {
     return `
@@ -200,6 +200,7 @@ function updateList() {
   closeModal();
   renderListcar(listcars);
 }
+// --- Tìm sản phẩm --- \\
 function searchCar() {
   let keyword = document.querySelector("#search").value;
   console.log(keyword);
