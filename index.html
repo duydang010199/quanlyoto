@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Management</title>
+    <link rel="stylesheet" href="listcar.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h4 class="heading-4">The New Product</h4>
+        <button class="btn btn-primary" onclick="openModal()">Add</button>
+      </div>
+      <div class="row">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Product Name</th>
+              <th>Color</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-container">
+      <div class="modal">
+        <div class="modal-header">
+          <div class="modal-title">Add Car</div>
+          <div class="close-modal" onclick="closeModal()">&times;</div>
+        </div>
+        <div class="modal-body">
+          <div class="create">
+            <div class="info">
+              <div class="form-group">
+                <label for="image" onchange="changeImage">Image</label>
+                <input type="url" class="form-control" id="image" />
+                <input type="hidden" value="0" id="listcarID" />
+              </div>
+              <div class="form-group">
+                <label for="name">Product Name</label>
+                <input type="text" class="form-control" id="name" />
+              </div>
+              <div class="form-group">
+                <label for="color">Color</label>
+                <input type="text" class="form-control" id="color" />
+              </div>
+              <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="text" class="form-control" id="quantity" />
+              </div>
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" id="price" />
+              </div>
+              <div class="form-group">
+                <label for="price"></label>
+                <button
+                  id="btnAdd"
+                  class="btn btn-warning mr"
+                  onclick="addCar()"
+                >
+                  Add
+                </button>
+                <button
+                  id="btnUpdate"
+                  class="btn btn-primary mr d-none"
+                  onclick="updateList()"
+                >
+                  Save
+                </button>
+                <button class="btn btn-danger" onclick="closeModal()">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="listcar.js"></script>
+  </body>
+</html>

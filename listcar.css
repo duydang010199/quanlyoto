@@ -1,0 +1,166 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+.container{
+    max-width: 1920px;
+    margin: 0px auto;
+}
+.row{
+    width: 100%;
+    padding: 5px;
+    margin: 5px;
+}
+.heading{
+    font-size: 20px;
+    font-weight: bolder;
+}
+.btn{
+    border: none;
+    outline: none;
+    border: 1px solid rgb(84, 75, 75);
+    border-radius: 4px;
+    padding: 5px 15px;
+}
+.btn-primary{
+    background-color: green;
+    border: 1px solid green;
+    color: white;
+}
+.btn-primary:hover{
+    background-color: darkgreen ;
+    cursor: pointer;
+}
+.btn-warning{
+    background-color: orange;
+    border: 1px solid orange;
+    color: white;
+}
+.btn-warning:hover{
+    background-color: darkorange ;
+    cursor: pointer;
+}
+.btn-danger{
+    background-color: #0069d9;
+    border: 1px solid #0062cc;
+    color: white;
+}
+.btn-danger:hover{
+    background-color: darkblue ;
+    cursor: pointer;
+}
+.btn-remove{
+    background-color: red;
+    border: 1px solid red;
+    color: white;
+}
+.btn-remove:hover{
+    background-color: rgb(154, 69, 69) ;
+    cursor: pointer;
+}
+.btn-edit{
+    background-color: #e0a800;
+    border: 1px solid #c4a034;
+    color: white;
+}
+.btn-edit:hover{
+    background-color: darkgoldenrod ;
+    cursor: pointer;
+}
+.table{
+    width: 100%;
+}
+.table, .table tr,.table th, .table td{
+    border-collapse: collapse;
+}
+.table, tr, td, th {
+    border-collapse: collapse;
+    padding: 3px;
+    border: 1px solid #333;
+}
+.table>thead>tr>th {
+    background-color: rgb(43, 137, 168);
+    padding: 10px 0px;
+    color: #fff;
+}
+table>tbody>tr:hover{
+    background-color: lightgray;
+}
+.image-sm{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+.modal-container{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0, 0, 0.2);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
+}
+.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal{
+    width: 600px;
+    background-color: white;
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 20px 20px;
+    box-shadow: 4px 4px 4px rgba(0,0, 0, 0.7);
+}
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    border-bottom: 1px solid grey;
+    margin-bottom: 10px;
+}
+.modal-header{
+    font-weight: bolder;
+    font-size: 20px;
+}
+.close-modal:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.create{
+    display: flex;
+    justify-content: space-between;
+}
+.info{
+    width: 65%;
+}
+.form-group{
+    display: flex;
+    margin: 3px 0px;
+}
+.form-group label{
+    width: 35%;
+}
+.form-control{
+   flex-grow: 1; 
+   padding: 5px 2px;
+}
+.mr{
+    margin-right: 3px;
+}
+.d-none{
+    display: none;
+}
