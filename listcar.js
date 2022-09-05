@@ -104,12 +104,12 @@ function addCar() {
     return;
   }
   let quantity = Number(document.querySelector("#quantity").value);
-  if (quantity < 1 && quantity == null) {
+  if (quantity <= 0 || quantity == null) {
     alert("Please input new product quantity!");
     return;
   }
   let price = Number(document.querySelector("#price").value);
-  if (price < 1 && price == null) {
+  if (price <= 0 || price == null) {
     alert("Please input new product price!");
     return;
   }
