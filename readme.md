@@ -10,3 +10,8 @@
    - Sửa sản phẩm
    - Lưu sau khi sửa sản phẩm
    - Tìm kiếm sản phẩm
+
+## Sản phẩm
+
+1. Link sản phẩm: https://duydang010199.github.io/quanlyoto/
+2. Link Git: https://github.com/duydang010199/quanlyoto
